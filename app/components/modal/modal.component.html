@@ -1,0 +1,19 @@
+<div id="modal-background" class="theme-bg" (click)="close()"></div>
+<div id="modal-content-container" class="theme-bg theme-text">
+    <header *ngIf="modalTitle">
+        <h2>{{modalTitle}}</h2>
+        <div class="fill-remaining-space"></div>
+        <button (click)="active=false"><i class="material-icons">close</i></button>
+    </header>
+    <ng-content></ng-content>
+    <footer>
+        <a id="footer-link-left" [attr.target]="appCfg.ModalFooterLeftDestination ? '_blank' : null" [attr.href]="appCfg.ModalFooterLeftDestination ? appCfg.ModalFooterLeftDestination : null">
+            <img id="logo" height="30" [src]="appCfg.TenantLogoUri" alt="Invalid logoUri in config.json" *ngIf="appCfg.TenantLogoUri">
+            <p *ngIf="appCfg.ModalFooterLeftText">{{appCfg.ModalFooterLeftText}}</p>
+        </a>
+        <div class="fill-remaining-space"></div>
+        <a id="footer-link-right" [attr.target]="appCfg.ModalFooterRightDestination ? '_blank' : null" [attr.href]="appCfg.ModalFooterRightDestination ? appCfg.ModalFooterRightDestination : null" *ngIf="appCfg.ModalFooterRightLogoUri">
+            <img id="logo-right" height="30" [src]="appCfg.ModalFooterRightLogoUri" alt="Invalid ModalFooterRightLogoUri in config.json" *ngIf="appCfg.ModalFooterRightLogoUri"/>
+        </a>
+    </footer>
+</div>

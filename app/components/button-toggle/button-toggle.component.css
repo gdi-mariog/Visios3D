@@ -1,0 +1,16 @@
+button-toggle {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.5;
+}
+
+button-toggle:hover {
+    opacity: 0.75;
+}
+
+button-toggle[active="true"] {
+    opacity: 1;
+}

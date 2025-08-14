@@ -1,0 +1,57 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 15px;
+    width: calc(100% - 30px);
+    height: auto;
+}
+
+#header-title-subtitle > h4 {
+    align-self: flex-end;
+    margin-bottom: 0.0625em;
+}
+
+.mat-button {
+    min-width: 32px;
+    width: 32px;
+    height: 100%;
+    padding: 0;
+}
+
+h2, h4, #header-logo {
+    margin-left: 8px;
+}
+
+#header-title-subtitle {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.mat-menu-item {
+    height: auto;
+    padding: 8px;
+    line-height: normal;
+}
+
+    .mat-menu-item > md-icon {
+        margin-right: 8px;
+    }
+
+    .mat-menu-item > span {
+        font-size: 14px;
+    }
+
+button-toggle {
+    padding: 15px;
+    padding-left: 0px;
+    height: calc(100% - 30px);
+}
+
+.header-seperator {
+    width: 1px;
+    height: 2em;
+    background-color: currentColor;
+    opacity: 0.2;
+    margin-right: 15px;
+}

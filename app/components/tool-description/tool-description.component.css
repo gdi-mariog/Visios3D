@@ -1,0 +1,45 @@
+.description {
+    position: fixed;
+    bottom: 174px;
+    left: 0;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    background-color: inherit;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    min-height: 20px;
+    overflow: hidden;
+
+}
+
+.description-tool {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 280px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid;
+    font-size: 12px;
+}
+
+.description-tools p {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    text-overflow: clip;
+    white-space: normal;
+    padding-top: 5px;
+    word-wrap: break-word;
+}
+
+.description-button {
+    display: flex;
+    flex-direction: row;
+    padding-top: 5px;
+    padding-right: 5px;
+}
+

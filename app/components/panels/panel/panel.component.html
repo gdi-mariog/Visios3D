@@ -1,0 +1,13 @@
+<ng-container *ngIf="active">
+    <div class="panel-header">
+      <i class="material-icons panel-icon" *ngIf="icon">{{icon}}</i>
+      <span class="panel-title" *ngIf="panelTitle">{{panelTitle}}</span>
+      <div class="fill-remaining-space"></div>
+      <button class="panel-close-btn" (click)="active=false">
+        <i class="material-icons panel-icon">close</i>
+      </button>
+    </div>
+    <div class="panel-body">
+        <ng-content></ng-content>
+    </div>
+</ng-container>

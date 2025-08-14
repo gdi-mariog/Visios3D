@@ -1,0 +1,358 @@
+* {
+    line-height: normal;
+    white-space: nowrap;
+}
+
+b {
+    font-weight: bold;
+}
+
+select {
+    min-width: 100%;
+    padding: 5px;
+}
+
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+.no-select {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+/* Tool output */
+
+app-tool-output table {
+    border-collapse: collapse;
+    height: 100%;
+}
+
+    app-tool-output table td,
+    app-tool-output table th {
+        min-height: 16px;
+        text-align: center;
+    }
+
+app-tool-output td > *,
+app-tool-output th > * {
+    padding: 8px;
+}
+
+/* Toolbar */
+#toolbar-card {
+    border-right: 1px solid currentColor;
+    width: 200px;
+    height: 158px;
+}
+
+    #toolbar-card table {
+        width: inherit;
+    }
+
+    #toolbar-card input[type=range] {
+        height: 15px;
+        margin: 0px;
+        width: 90%;
+    }
+
+    _:lang(x), #toolbar-card input[type=range] {
+        -webkit-appearance: none;
+        -moz-appearance: range;
+    }
+
+        #toolbar-card input[type=range]::-ms-track {
+            height: 15px;
+            margin: 0px;
+            width: 90%;
+        }
+
+        #toolbar-card input[type=range]:focus {
+            outline: none;
+        }
+
+    #toolbar-card input[type="number"] {
+        width: 50px;
+        margin: 0px;
+        display: -webkit-inline-box;
+        height: inherit;
+        border: 0px;
+        margin-top: 8px;
+        color: inherit;
+        padding: 2px;
+        -moz-appearance: textfield;
+    }
+
+    #toolbar-card input[type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    #toolbar-card button {
+        opacity: 0.5;
+        width: 50%;
+    }
+
+        #toolbar-card button:hover:not(:active) {
+            opacity: 1;
+        }
+
+        #toolbar-card button:active {
+            opacity: 0.75;
+        }
+
+#measure-line-fixed-card, #select-fixed-card {
+    border-right: 1px dashed currentColor;
+    margin-right: 4px;
+}
+
+    #measure-line-fixed-card td:first-child > p,
+    #measure-line-fixed-card th > p {
+        font-weight: bold;
+    }
+
+.version {
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+    .cards > * {
+        margin-right: 1px;
+    }
+
+.buttons {
+    display: flex;
+}
+
+    .buttons button {
+        float: left;
+        width: 33.3%;
+    }
+
+    .buttons button-toggle {
+        width: 33.3%;
+        float: right;
+    }
+
+.card {
+    min-width: fit-content;
+    max-height: 200px;
+}
+
+.point-coords-card {
+    margin-right: 0px !important;
+}
+
+    .point-coords-card th {
+        border-bottom: 1px solid currentColor;
+    }
+
+        .point-coords-card th > div {
+            display: flex;
+            flex: 1 1 auto;
+            padding: 0;
+        }
+
+
+        .point-coords-card th p {
+            max-width: fit-content;
+            font-weight: bold;
+        }
+
+    .point-coords-card td:first-child {
+        text-align: center;
+    }
+
+        .point-coords-card td:first-child p {
+            opacity: 0.3;
+        }
+
+    .point-coords-card td:last-child {
+        text-align: right;
+    }
+
+.zoom-to-line-btn,
+.remove-line-btn,
+.go-to-point-extent-btn,
+.remove-point-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    opacity: 0.5;
+}
+
+    .zoom-to-line-btn:hover,
+    .remove-line-btn:hover,
+    .go-to-point-extent-btn:hover,
+    .remove-point-btn:hover {
+        opacity: 1;
+        cursor: pointer;
+    }
+
+.fields-container {
+    min-width: fit-content;
+    overflow-y: initial;
+    max-height: 200px;
+    margin-right: 2px !important;
+}
+/* Layer Opacity tab */
+#toc-opacity-tab {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.layer-opacity-title {
+    width: 100%;
+    padding-top: 7px;
+    margin-top: 7px;
+    color: inherit;
+    background-color: inherit;
+}
+
+    .layer-opacity-title:not(:first-child) {
+        padding-top: 15px;
+        margin-top: 15px;
+    }
+
+.radio_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.radio_buttons > input {
+    height: 15px;
+    width: 13px;
+}
+
+.radio_buttons > label {
+    font-size: 13px;
+}
+.settings-panel-text {
+    width: 100%;
+    padding-top: 7px;
+    margin-top: 7px;
+    color: inherit;
+    background-color: inherit;
+}
+
+.alert-copy {
+    padding: 6px;
+}
+
+.menu-panel { 
+    display: grid;
+}
+
+.label-size > label {
+    font-size: 13px;
+}
+
+.menu-panel > h1 {
+    padding-bottom: 8px;
+    font-size: 15px;
+}
+
+.menu-panel > h1:not(:first-child) {
+    padding-top: 15px;
+}
+
+.menu-panel > hr {
+    margin-top: 10px;
+    display: block;
+    position: relative;
+    padding: 0;
+    height: 0;
+    width: 100%;
+    max-height: 0;
+    font-size: 1px;
+    line-height: 0;
+    clear: both;
+    border: none;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+
+}
+
+.menu-panel-indent {
+    margin-left: 10px;
+}
+
+.menu-panel-indent > .row:not(:last-child) {
+    padding-bottom: 4px;
+}
+
+.title-point-cloud {
+    margin-bottom: 5px;
+}
+
+.bookmark-panel:not(:last-child) {
+    padding-bottom: 6px;
+    border-bottom: 1px solid;
+}
+
+.bookmark-panel:not(:first-child) {
+    padding-top: 6px;
+}
+
+.bookmark-panel p {
+    padding-left: 20px;
+}
+
+.bookmark-panel {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+}
+
+.shadow-toggles-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.shadow-toggles-container button-toggle {
+    width: calc(100% - 16px);
+    padding: 8px;
+}
+
+.opacity-slider-container {
+    padding-top: 8px;
+}
+
+.output-icon {
+    height: 16px;
+    text-align: center;
+}
+
+.show {
+    opacity: 1 !important;
+}
+
+.step {
+    opacity: 0;
+    transition: .5s ease-in-out all;
+}
+
+.border-bottom {
+    border-bottom: 1px solid;
+}

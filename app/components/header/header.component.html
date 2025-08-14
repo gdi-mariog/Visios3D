@@ -1,0 +1,34 @@
+<img id="header-logo" *ngIf="appCfg.TenantLogoUri" [src]="appCfg.TenantLogoUri" alt="Wrong logo image URI in config.json">
+<div id="header-title-subtitle">
+    <h2 *ngIf="appCfg.Title">{{appCfg.Title}}</h2>
+    <h4 *ngIf="appCfg.Subtitle">{{appCfg.Subtitle}}</h4>
+</div>
+<span class="fill-remaining-space"></span>
+<button-toggle title="Bookmarks" [active]="this.uiMgr.bookmarksPanelActive" (click)="this.toggleBookmarksPanel()" i18n-title="@@header-bookmarks" *ngIf="this.appCfg.getShowBookmarksPanel() == true">
+    <i class="material-icons">bookmarks</i>
+</button-toggle>
+<button-toggle title="Table of contents" [active]="this.uiMgr.tocPanelActive" (click)="this.toggleTocPanel()" i18n-title="@@header-toc">
+    <i class="material-icons">subject</i>
+</button-toggle>
+<button-toggle title="Basemap select" [active]="this.uiMgr.basemapPanelActive" (click)="this.toggleBasemapPanel()" i18n-title="@@header-basemap">
+    <i class="material-icons">view_module</i>
+</button-toggle>
+<button-toggle *ngFor="let tool of toolMgr.Tools" [title]="removeHtmlComments(altValue.innerHTML)" [active]="toolMgr.ActiveTool == tool" (click)="toolMgr.onToolButtonPressed(tool)">
+    <div hidden>
+        <span #altValue i18n="@@header-tools">{ tool.Name, select, Draw {Draw} Measure {Measure} Select {Select} }</span>
+    </div>
+    <i class="icon-pen material-icons" style="font-family: 'mfg_labs_iconsetregular';" *ngIf="tool == toolMgr.DrawTool"></i>
+    <i class="icon-measure material-icons" style="font-family: 'mfg_labs_iconsetregular';" *ngIf="tool == toolMgr.MeasureTool"></i>
+    <i class="material-icons" *ngIf="tool == toolMgr.SelectTool">album</i>
+</button-toggle>
+<button-toggle title="Settings" [active]="this.uiMgr.menuPanelActive" (click)="this.toggleMenuPanel()" i18n-title="@@header-settings">
+    <i class="material-icons">settings</i>
+</button-toggle>
+<div class="header-seperator"></div>
+<button-toggle title="Info" [active]="this.uiMgr.infoModalActive" (click)="this.uiMgr.toggleInfoModal()" i18n-title="@@header-info">
+    <i class="material-icons">info</i>
+</button-toggle>
+<button-toggle title="Help" [active]="this.uiMgr.helpModalActive" (click)="this.uiMgr.toggleHelpModal()" i18n-title="@@header-help">
+    <i class="material-icons">help</i>
+</button-toggle>
+<div #searchBarDiv style="overflow:visible;"></div>

@@ -1,0 +1,77 @@
+:host[active=true] {
+    margin-bottom: 15px;
+}
+
+/* ----- Panel Header ---- */
+
+.panel-header {
+    align-items: center;
+    background-color: inherit;
+    display: flex;
+    padding: 8px
+}
+
+
+/* Header title */
+
+.panel-title {
+    height: 100%
+}
+
+
+/* Header icon */
+
+.panel-icon {
+    font-size: 18px;
+    height: 18px;
+    line-height: 18px;
+    margin-right: 8px;
+    width: 18px
+}
+
+
+/* Close button */
+
+.panel-close-btn {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    height: 22px;
+    outline: none;
+    padding: 2px;
+    width: 22px
+}
+
+.panel-close-btn .panel-icon {
+    margin: 0
+}
+
+.panel-close-btn:focus {
+    background-color: inherit;
+    border: none;
+    outline: none
+}
+
+.panel-close-btn:focus > .panel-icon {
+    display: none
+}
+
+.panel-close-btn:hover {
+    background-color: inherit
+}
+
+.panel-close-btn:hover > .panel-icon {
+    background-color: inherit;
+    font-size: 14px;
+    height: 14px;
+    line-height: 14px;
+    width: 14px
+}
+
+
+/* ----- Panel body ----- */
+
+.panel-body {
+    background-color: transparent;
+    padding: 15px;
+}

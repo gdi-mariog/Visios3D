@@ -1,0 +1,15 @@
+:host {
+    position: relative;
+    top: 15px;
+    right: 15px;
+    float: right;
+
+    display: flex;
+    flex-direction: column;
+    
+    min-width: 330px;
+    max-width: 400px;
+    
+    max-height: 93vh;
+    overflow-y: auto;
+}

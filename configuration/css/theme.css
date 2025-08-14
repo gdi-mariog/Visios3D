@@ -1,0 +1,232 @@
+/* --- MAIN THEME COLOR ---
+** Background color for most of UI elements
+** Alpha value of ~0.5 is strongly recommended as alpha was heavily utilized in layout design */
+
+/* --- MAIN THEME BACKGROUND COLOR --- */
+.theme-bg,
+.esri-widget--button,
+.esri-popup__footer .esri-popup__button,
+.esri-widget--button:hover,
+.esri-widget .esri-menu,
+.esri-component:not(.esri-attribution),
+.esri-widget:not(.esri-attribution),
+.esri-building-explorer,
+.esri-building-level-picker-label--empty
+.esri-widget--panel
+.esri-slice__container,
+.esri-popup__main-container.esri-widget,
+.esri-popup__button:hover,
+.esri-popup__pointer-direction,
+.esri-widget .esri-menu li:hover,
+.esri-widget .esri-menu li:focus,
+.esri-search__input,
+.esri-navigation-toggle:hover .esri-navigation-toggle__button,
+.esri-navigation-toggle:focus .esri-navigation-toggle__button,
+.esri-popup__header-container--button:hover {
+    /* rgba(RED_VALUE, GREEN_VALUE, BLUE_VALUE, ALPHA_VALUE) */
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+/* Modal, measure tool content color */
+.content-color {
+    color: white;
+}
+
+/* --- MAIN THEME TEXT STYLE --- */
+.theme-text, a,
+.cssload-thecube .cssload-cube,
+.cssload-thecube .cssload-cube:before,
+.esri-widget__table,
+.esri-button,
+.esri-slice__settings li,
+.esri-popup__button,
+.esri-button--secondary,
+.esri-building-disciplines-tree-node__label,
+.esri-building-level-picker-label--empty,
+.esri-building-level-picker-label--hover,
+.esri-building-disciplines-tree-node__checkbox,
+.esri-building-level-picker-label__clear-button,
+.esri-line-of-sight__hint-text,
+.esri-icon-close,
+.esri-elevation-profile__prompt-container,
+.esri-building-level-picker__arrow-up,
+.esri-building-level-picker__arrow-down,
+.esri-slice__hint-text,
+.esri-popup__button:hover,
+.esri-popup__footer .esri-popup__button,
+.esri-widget--button,
+.esri-popup__main-container.esri-widget,
+.esri-widget--button:hover,
+.esri-widget .esri-menu,
+.esri-widget .esri-menu li:hover,
+.esri-widget .esri-menu li:focus,
+.esri-elevation-profile-statistics__statistic-label,
+.esri-elevation-profile-statistics__statistic-value,
+.esri-elevation-profile-legend__label-content,
+.esri-select,
+.esri-search__input,
+.esri-widget__heading,
+.esri-navigation-toggle:hover .esri-navigation-toggle__button,
+.esri-navigation-toggle:focus .esri-navigation-toggle__button {
+    /* - TEXT COLOR */
+    color: rgb(0, 173, 238);
+    /* - TEXT SIZE - */
+    font-size: 14px;
+    /* - TEXT FONT - */
+    /* Arial, Helvetica, sans-serif should be always kept at the end, they serve as fallback if user doesn't have other fonts installed.
+    ** If the browser does not support the first font, it tries the next font, and so on.
+    ** NOTE: If the name of a font family is more than one word, it must be in quotation marks, like: "Times New Roman". */
+    font-family: "Avenir Next", "Avenir", Roboto, "Helvetica-Neue", Helvetica, Arial, sans-serif;
+    /* - TEXT WEIGHT - */
+    /* The font-weight property specifies the weight of a font
+    ** normal = 400, bold = 700 */
+    font-weight: 400;
+}
+
+/* --- MAIN THEME ESRI BORDERS --- */
+.esri-search__submit-button {
+    border-left: 1px solid rgb(0, 173, 238);
+}
+.esri-popup--is-docked {
+    background-color: transparent !important;
+}
+.esri-zoom .esri-widget--button:last-child,
+.esri-navigation-toggle__button--rotate {
+    border-top: 1px solid rgb(0, 173, 238);
+}
+.esri-legend__service {
+    border-bottom: 1px solid rgb(0, 173, 238);
+}
+.esri-view-height-medium .esri-ui-corner .esri-component.esri-widget--panel {
+    max-height: 390px !important;
+}
+
+/* --- ALL SLIDERS AND SCROLLBARS BACKGROUND COLOR --- */
+::-webkit-slider-runnable-track,
+::-webkit-slider-thumb,
+::-webkit-scrollbar-thumb,
+.esri-layer-list__item:after {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* --- LOADER --- */
+body {
+    /* Background color behind loader can be set here*/
+    background-color: rgb(0, 0, 0);
+}
+
+/* --- HEADER LOGO --- */
+#header-logo {
+    /* - SET LOGO HEIGHT HERE - */
+    height: 40px;
+    /* - SET LOGO PADDING HERE - */
+    padding: 10px;
+}
+
+/* --- MODAL BORDERS --- */
+modal > #modal-content-container > header {
+    /* Color of line under modal title */
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+}
+
+modal > #modal-content-container > footer {
+    /* Color of line above modal footer */
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+modal > #modal-background {
+    opacity: 0.1;
+}
+
+/* --- SELECT DROPDOWN-LIST STYLE ---
+** Dropdown colors only, select button itself is styled with theme color */
+select option {
+    /* Dropdown background color, transparency not supported */
+    background-color: rgb(0, 0, 0);
+    /* Dropdown text color */
+    /* When "color: inherit;" theme text color is used, to manually set dropdown options color use "color: rgb(255,255,255);" instead */
+    color: inherit;
+}
+
+/* Tool Description text size*/
+.description-tools p {
+    font-size: 13px;
+}
+
+#copy {
+    margin-left: 40px;
+}
+
+#slice {
+    margin-left: 80px;
+}
+
+#Elevation {
+    margin-left: 120px;
+}
+
+#LoS {
+    margin-left: 160px;
+}
+
+#explorer {
+    margin-left: 200px;
+}
+
+/*Output icon size*/
+.output-icon {
+    font-size: 20px;
+}
+
+/* Slider container */
+input[type="range"] {
+    /* Seperator line height, type and color*/
+    /*border-bottom: 1px solid rgba(255,255,255,0.25);*/
+}
+
+/* --- TABLE OF CONTENTS --- */
+.esri-layer-list__item,
+.esri-legend__group-layer-child {
+    /* Layerlist and legend layer item divider style can be set here */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+    .esri-layer-list__item:before {
+        /* Layer list progress bar background color can be set here */
+        background-color: transparent;
+    }
+
+    /* --- THESE VALUSE CAN BE UNCOMMENTED TO OVERRIDE MAIN THEME BACKGROUND COLOR ---*/
+
+    .esri-layer-list__item:after {
+        /* Layer list progress bar slider color can be set here
+    Uncomment to override value from GLOBAL UI*/
+        /*background-color: rgba(255,255,255,0.5);*/
+    }
+
+/* --- CUBE LOADER --- */
+.cssload-thecube .cssload-cube:before {
+    /* Loader cube color can be set here
+    Uncomment to override value from GLOBAL UI*/
+    /*background-color: rgba(255, 255, 255, 1);*/
+}
+
+/* --- SCROLLBAR --- */
+::-webkit-scrollbar-thumb {
+    /* Scrollbar movable part color
+    Uncomment to override value from GLOBAL UI*/
+    /*background-color: rgba(255, 255, 255, 0.5);*/
+}
+
+/* --- SLIDERS --- */
+::-webkit-slider-runnable-track {
+    /* Slider track color
+    Uncomment to override value from GLOBAL UI*/
+    /*background-color: rgba(255, 255, 255, 0.5);*/
+}
+
+::-webkit-slider-thumb {
+    /* Slider movable part color
+    Uncomment to override value from GLOBAL UI*/
+    /*background-color: rgba(255, 255, 255, 0.5);*/
+}

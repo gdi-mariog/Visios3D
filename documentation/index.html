@@ -1,0 +1,2154 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <title>V3D Docs</title>
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" asp-append-version="true" />
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16" asp-append-version="true" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- Custom css -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="img/logo-128-colored.png" width="30" height="30" class="d-inline-block align-top" alt=""> Docs
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">
+                        Config.json
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Theme.css</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Files</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Development</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+        <h1 class="display-3">Config.json</h1>
+        <p class="lead">Here you'll find information on how to configure Visios3D through config.json</p>
+    </div>
+    <div class="container-fluid">
+        <section>
+            <h3>What is config.json?</h3>
+            <p>Config.json is a JSON file from which Visios3D reads its configuration.</p>
+        </section>
+        <section>
+            <h3>Where is config.json?</h3>
+            <p>
+                You'll find config.json inside
+                <b>serverRoot/tenantName/wwwroot/configuration</b>, for example C:\inetpub\wwwroot\fakat\wwwroot\configuration
+            </p>
+            <h3>How to configure?</h3>
+            <p>
+                Config.json is a JSON file, so everything you write should adhere to JSON conventions.
+                <br /> Comments are not allowed.
+                <br />
+                <a href="http://www.json.org/">Visit this link</a> to learn more about JSON standard.
+            </p>
+        </section>
+        <section>
+            <h3>General configuration:</h3>
+            <p>
+                Below is a list of properties that can be set in config.json
+                <b> if a property isn't set, the default value will be applied.</b>
+            </p>
+            <table class="table table-bordered" id="table-configurable-props">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Property</th>
+                        <th scope="col">Data type</th>
+                        <th scope="col">Default</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Example</th>
+                    </tr>
+                </thead>
+                <tbody class="thead-dark">
+                    <tr>
+                        <th colspan="5">UI Content</th>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>string</td>
+                        <td>
+                            Title won't display in header.
+                            <br />Browser tab text will be set to "GDi Ensemble Smart Portal 3D".
+                        </td>
+                        <td>Main title for the app. When app finishes loading it appears in browser tab and app header.</td>
+                        <td>
+                            <code>"title": "Zagrebačka županija"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>subtitle</td>
+                        <td>string</td>
+                        <td>Subtitle won't display.</td>
+                        <td>Appears next to the main title text in header, a bit smaller than main title.</td>
+                        <td>
+                            <code>"subtitle": "Visios 3D"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>tenantLogoUri</td>
+                        <td>
+                            <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">URI string</a>
+                        </td>
+                        <td>Logo won't display in header and left part of modal footer.</td>
+                        <td>
+                            URI to the main logo of the app, can be a relative path to the image on the server or URL to an image.
+                            <br />Appears to the left of the main title in header and in the left side of modal window footers.
+                            <br />When invalid URI is set, "Invalid logoUri in config.json" text will be written where the image should be (header, modal footer).
+                        </td>
+                        <td>
+                            <code>"tenantLogoUri":"http://www.zagreb.hr/img/logo-foo.png"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>appVersion</td>
+                        <td> string </td>
+                        <td>App version will not be shown</td>
+                        <td>Current app version in use. </td>
+                        <td>
+                            <code>"appVersion": "Version: 2.2.9"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>modalFooterLeftDestination</td>
+                        <td>
+                            <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">URI string</a>
+                        </td>
+                        <td>Left part of the modal footer won't be a link.</td>
+                        <td>URI to the web location which will open in a new tab when user clicks on the left side logo and text in modal footer.</td>
+                        <td>
+                            <code>"modalFooterLeftDestination": "http://www.zagreb.hr/"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>modalFooterLeftText</td>
+                        <td>string</td>
+                        <td>Text won't display.</td>
+                        <td>
+                            Text next to the logo in the left part of the modal footer.
+                            <br />If you want to add multiple lines of text, use "\n" to break the line.
+                        </td>
+                        <td>
+                            <code>"modalFooterLeftText": "GRAD ZAGREB\nGRADSKI URED ZA STRATEGIJSKO PLANIRANJE I RAZVOJ GRADA"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>modalFooterRightLogoUri</td>
+                        <td>
+                            <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">URI string</a>
+                        </td>
+                        <td>Right part of modal footer won't display.</td>
+                        <td>
+                            URI to the logo to be displayed in right part of the modal footer, can be a relative path to the image on the server or URL to an image.
+                            <br />When invalid URI is set, "Invalid modalFooterRightLogoUri in config.json" text will be written in modal footer.
+                        </td>
+                        <td>
+                            <code>"modalFooterRightLogoUri": "http://zagreb.gdi.net/ZG3D/img/GDi_LOCALIS.png"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>modalFooterRightDestination</td>
+                        <td>
+                            <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">URI string</a>
+                        </td>
+                        <td>Right part of the modal footer won't be a link.</td>
+                        <td>
+                            URI to the web location which will open in a new tab when user clicks on the logo in the right part of the modal footer.<br />
+                            <b>modalFooterRightLogoUri MUST be set for this to work.</b>
+                        </td>
+                        <td>
+                            <code>"modalFooterRightDestination": "https://gdi.net/"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>welcomeModalContentUri</td>
+                        <td>
+                            <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">URI string</a>
+                        </td>
+                        <td>Welcome modal content will be empty.</td>
+                        <td>
+                            URI to .html file which contains content that should be displayed inside the modal<br />
+                        </td>
+                        <td>
+                            <code>"welcomeModalContentUri": "configuration/modals/welcome-modal-content.html"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>helpModalContentUri</td>
+                        <td>
+                            <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">URI string</a>
+                        </td>
+                        <td>Help modal content will be empty.</td>
+                        <td>
+                            URI to .html file which contains content thar should be displayed inside the modal<br />
+                        </td>
+                        <td>
+                            <code>"helpModalContentUri": "configuration/modals/help-modal-content.html"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>aboutModalContentUri</td>
+                        <td>
+                            <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">URI string</a>
+                        </td>
+                        <td>About modal content will be empty.</td>
+                        <td>
+                            URI to .html file which contains content that should be displayed inside the modal<br />
+                        </td>
+                        <td>
+                            <code>"aboutModalContentUri": "configuration/modals/about-modal-content.html"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>releaseNotesModalContentUri</td>
+                        <td>
+                            <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">URI string</a>
+                        </td>
+                        <td>Release modal content will be empty.</td>
+                        <td>
+                            URI to .html file which contains content that should be displayed inside the modal<br />
+                        </td>
+                        <td>
+                            <code> "releaseNotesModalContentUri": "configuration/modals/release-notes-modal-content.html"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>showWelcomeModal</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>Self explanatory.</td>
+                        <td>
+                            <code>"showWelcomeModal": false</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>showBookmarksPanel</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>Self explanatory.</td>
+                        <td>
+                            <code>"showBookmarksPanel": true</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>showSliceWidget</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>Self explanatory.</td>
+                        <td>
+                            <code>"showSliceWidget": false</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>theme-bg</td>
+                        <td>string</td>
+                        <td>Default value is theme-bg</td>
+                        <td>Main backgroud css setup.</td>
+                        <td>
+                            <code>"theme-bg": "theme-bg"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>theme-text</td>
+                        <td>string</td>
+                        <td>Default value is theme-text</td>
+                        <td>Main text css setup.</td>
+                        <td>
+                            <code>"theme-text": "theme-text"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>selectToolEnabled</td>
+                        <td>boolean</td>
+                        <td>Default value is true</td>
+                        <td>Self explanatory.</td>
+                        <td>
+                            <code>"selectToolEnabled": true</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>selectToolOutFields</td>
+                        <td>string</td>
+                        <td></td>
+                        <td>Data title form input must match title in app.</td>
+                        <td>
+                            <code>
+                                "selectToolOutFields": [
+                                [ "ZG3D_LOD1_2008_Volume", "Volumen [m³]" ],..
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>selectToolAnalysisOperations</td>
+                        <td>array</td>
+                        <td>Default value is SUM</td>
+                        <td>Specific operation that can be used in application</td>
+                        <td>
+                            <code>
+                                "selectToolAnalysisOperations": ["SUM", "AVG", "MAX", "MIN"]
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>selectToolAnalysisOperationalLabels</td>
+                        <td>array</td>
+                        <td>Default value is Volumen [m³]</td>
+                        <td>All operations that can be used in application.</td>
+                        <td>
+                            <code>
+                                "selectToolAnalysisOperationalLabels": [ "Volumen [m³]" ]
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>drawToolEnabled</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>Self explanatory.</td>
+                        <td>
+                            <code>
+                                "drawToolEnabled": false
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>measureToolEnabled</td>
+                        <td>boolean</td>
+                        <td>Default value is true</td>
+                        <td>Self explanatory.</td>
+                        <td>
+                            <code>
+                                "measureToolEnabled": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">Tool Info</th>
+                    </tr>
+                    <tr>
+                        <td colspan="5">How to use app tools</td>
+                    </tr>
+                    <tr>
+                        <td>point</td>
+                        <td>string</td>
+                        <td>Point tool description</td>
+                        <td>
+                            How to use Point tool in application.
+                        </td>
+                        <td>
+                            <code>"pointUri": "configuration/tool descriptions/point.html"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>line</td>
+                        <td>string</td>
+                        <td>Line tool description</td>
+                        <td>
+                            How to use Line tool in application.
+                        </td>
+                        <td>
+                            <code>"lineUri": "configuration/tool descriptions/line.html"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>multiple</td>
+                        <td>string</td>
+                        <td>Multiple select tool description</td>
+                        <td>
+                            How to use Multiple select tool in application.
+                        </td>
+                        <td>
+                            <code>"multipleUri": "configuration/tool descriptions/multiple.html"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>polygon</td>
+                        <td>string</td>
+                        <td>Polygon buffer tool description</td>
+                        <td>
+                            How to use Polygon buffer tool in application.
+                        </td>
+                        <td>
+                            <code>"polygonUri": "configuration/tool descriptions/polygon.html"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>circle</td>
+                        <td>string</td>
+                        <td>Circle buffer tool description</td>
+                        <td>
+                            How to use Circle buffer tool in application.
+                        </td>
+                        <td>
+                            <code>"circleUri": "configuration/tool descriptions/circle.html"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">Geometry service</th>
+                    </tr>
+                    <tr>
+                        <td colspan="5">Used on measure tool for projecting points to specified spatial reference</td>
+                    </tr>
+                    <tr>
+                        <td>geometryServiceUrl</td>
+                        <td>string</td>
+                        <td>No projection will be done for the points.</td>
+                        <td>
+                            Url to ESRI Rest GeometryService
+                        </td>
+                        <td>
+                            <code>"geometryServiceUrl": "https://test.com/server/rest/services/Utilities/Geometry/GeometryServer"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>projectionSpatialReferenceWkid</td>
+                        <td>number</td>
+                        <td>No projection will be done for the points.</td>
+                        <td>
+                            Well known ID (WKID) of spatial reference that you want to project the points to
+                        </td>
+                        <td>
+                            <code>"projectionSpatialReferenceWkid": 4326</code>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th colspan="5">Geometry - Circle</th>
+                    </tr>
+                    <tr>
+                        <td colspan="5">Used on circle tool</td>
+                    </tr>
+                    <tr>
+                        <td>initialCircleRadius</td>
+                        <td>number</td>
+                        <td>Inital circle radius</td>
+                        <td>
+                            Default radius for drawing new circle
+                        </td>
+                        <td>
+                            <code>"initialCircleRadius": 20</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>maxCircleRadius</td>
+                        <td>number</td>
+                        <td>Maximal circle radius</td>
+                        <td>
+                            Maximal radius for drawing new circle
+                        </td>
+                        <td>
+                            <code>"maxCircleRadius": 100</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>minCircleRadius</td>
+                        <td>number</td>
+                        <td>Minimal circle radius</td>
+                        <td>
+                            Minimal radius for drawing new circle
+                        </td>
+                        <td>
+                            <code>"minCircleRadius": 0</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">Widgets</th>
+                    </tr>
+                    <tr>
+                        <td>layerListGoToFullExtentButtonsEnabled</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>
+                            Determines if go-to-full-extent buttons should be displayed in LayerList widget.
+                        </td>
+                        <td>
+                            <code>"layerListGoToFullExtentButtonsEnabled": false</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">Scene View - Map</th>
+                    </tr>
+                    <tr>
+                        <td>basemap</td>
+                        <td>string</td>
+                        <td>"dark-gray"</td>
+                        <td>
+                            Default basemap to set when the app loads.<br />
+                            <a href="https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html#basemap">
+                                Click here to see a list of all valid values.
+                            </a>
+                        </td>
+                        <td>
+                            <code>"basemap": "dark-gray"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>viewLonLatElevation</td>
+                        <td>number[3]</td>
+                        <td>[0,0,0]</td>
+                        <td>
+                            Initial longitude, latitude and elevation for the view.
+                        </td>
+                        <td>
+                            <code>"viewLonLatElevation": [ 15.9792, 45.7526, 3643 ]</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>viewHeadingTiltFOV</td>
+                        <td>number[3]</td>
+                        <td>[0,0,55]</td>
+                        <td>
+                            Initial view camera heading, tilt and field of view.
+                        </td>
+                        <td>
+                            <code>"viewHeadingTiltFOV": [ 0, 56, 55 ]</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">Scene View - Highlight</th>
+                    </tr>
+                    <tr>
+                        <td colspan="5">Highlight on objects displayed when using identify or select tool</td>
+                    </tr>
+                    <tr>
+                        <td>viewHighlightHaloOpacity</td>
+                        <td>number (0,1)</td>
+                        <td>0.4</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"viewHighlightHaloOpacity": 0.7</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>viewHighlightFillOpacity</td>
+                        <td>number in [0,1]</td>
+                        <td>0.4</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"viewHighlightFillOpacity": 0.0</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>viewHighlightColor</td>
+                        <td><a href="https://en.wikipedia.org/wiki/Web_colors#Hex_triplet">Hex triplet string</a></td>
+                        <td>#501236</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"viewHighlightColor": "#000000"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">Scene View - Graphics</th>
+                    </tr>
+                    <tr>
+                        <td>viewQualityProfile</td>
+                        <td>string&nbsp;ϵ&nbsp;["high","low"]</td>
+                        <td>"high"</td>
+                        <td>
+                            Self explanatory. It's recommended to use "high" except for situations when you really want to squeeze every single bit of performance.
+                        </td>
+                        <td>
+                            <code>"viewQualityProfile": "low"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">Atmosphere</td>
+                    </tr>
+                    <tr>
+                        <td>atmosphereEnabled</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"atmosphereEnabled": false</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>atmosphereQuality</td>
+                        <td>string&nbsp;ϵ&nbsp;["high","low"]</td>
+                        <td>"low"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"atmosphereQuality": "high"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>starsEnabled</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"starsEnabled": false</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">Shadows</td>
+                    </tr>
+                    <tr>
+                        <td>shadowsEnabled</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"shadowsEnabled": false</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ambientOcclusionEnabled</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"ambientOcclusionEnabled": false</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>initialDateTime</td>
+                        <td>Date string</td>
+                        <td>October 16, 2017 13:00:00</td>
+                        <td>
+                            When shadows are enabled, sun will be set according to this.
+                        </td>
+                        <td>
+                            <code>"initialDateTime": "October 16, 2017 14:00:00"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">Supported layer types</th>
+                    </tr>
+                    <tr>
+                        <td>supportedLayerTypes</td>
+                        <td>Array</td>
+                        <td>"SceneLayer"</td>
+                        <td>
+                            Layers that can be added to the map.
+                        </td>
+                        <td>
+                            <code>"supportedLayerTypes": "WMSLayer,WMTSLayer,FeatureLayer,SceneLayer,PointCloudLayer,BuildingSceneLayer,MapImageLayer,TileLayer,IntegratedMeshLayer"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">WMS layer</th>
+                    </tr>
+                    <tr>
+                        <td>url</td>
+                        <td>Url</td>
+                        <td>It has to have some valid url to be shown on the map</td>
+                        <td>
+                            Layer url so it can be correctly added to the map.
+                        </td>
+                        <td>
+                            <code>"http://services.bioportal.hr/wms?request=GetCapabilities"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>type</td>
+                        <td>string</td>
+                        <td>Value from supported layers type</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"type": "WMSLayer"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>string</td>
+                        <td>Title</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"title": "Granica Grada Zagreba"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>outFields</td>
+                        <td>array</td>
+                        <td>Default value is ["*"]</td>
+                        <td>
+                            Fields
+                        </td>
+                        <td>
+                            <code>"outFields": [ "*" ]</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>visible</td>
+                        <td>boolean</td>
+                        <td>Default value is "true"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": true</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>opacity</td>
+                        <td>number</td>
+                        <td>Default value is "1"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": 1</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>listMode</td>
+                        <td>string</td>
+                        <td>Default value is "show"</td>
+                        <td>
+                            Indicates how the layer should display in the LayerList widget.
+                            Possible values: "show", "hide", "hide-children"
+                        </td>
+                        <td>
+                            <code>
+                                "listMode": 'hide-children'
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>showZoomToFullExtent</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Toggle zoom to full extent button in LayerList widget.
+                        </td>
+                        <td>
+                            <code>
+                                "showZoomToFullExtentButton": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">WMTS layer</th>
+                    </tr>
+                    <tr>
+                        <td>url</td>
+                        <td>Url</td>
+                        <td>It has to have some valid url to be shown on the map</td>
+                        <td>
+                            Layer url so it can be correctly added to the map.
+                        </td>
+                        <td>
+                            <code>
+                                "https://services.arcgisonline.com/arcgis/rest/services/Demographics/USA_Population_Density/MapServer/WMTS/"
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>type</td>
+                        <td>string</td>
+                        <td>Value from supported layers type</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"type": "WMTSLayer"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>string</td>
+                        <td>Title</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"title": "USA_Population_Density"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>outFields</td>
+                        <td>array</td>
+                        <td>Default value is ["*"]</td>
+                        <td>
+                            Fields
+                        </td>
+                        <td>
+                            <code>"outFields": [ "*" ]</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>visible</td>
+                        <td>boolean</td>
+                        <td>Default value is "true"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": true</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>opacity</td>
+                        <td>number</td>
+                        <td>Default value is "1"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": 1</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>listMode</td>
+                        <td>string</td>
+                        <td>Default value is "show"</td>
+                        <td>
+                            Indicates how the layer should display in the LayerList widget.
+                            Possible values: "show", "hide", "hide-children"
+                        </td>
+                        <td>
+                            <code>
+                                "listMode": 'hide-children'
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>showZoomToFullExtent</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Toggle zoom to full extent button in LayerList widget.
+                        </td>
+                        <td>
+                            <code>
+                                "showZoomToFullExtentButton": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">Feature layer</th>
+                    </tr>
+                    <tr>
+                        <td>url</td>
+                        <td>Url</td>
+                        <td>It has to have some valid url to be shown on the map</td>
+                        <td>
+                            Layer url so it can be correctly added to the map.
+                        </td>
+                        <td>
+                            <code>"https://services1.arcgis.com/srGsjgmVH7sYUOi4/arcgis/rest/services/ZG3D_2D/FeatureServer/1"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>type</td>
+                        <td>string</td>
+                        <td>Value from supported layers type</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"type": "FeatureLayer"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>string</td>
+                        <td>Title</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"title": "Granica Grada Zagreba"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>outFields</td>
+                        <td>array</td>
+                        <td>Default value is ["*"]</td>
+                        <td>
+                            Fields
+                        </td>
+                        <td>
+                            <code>"outFields": [ "*" ]</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>popupDisplayFields</td>
+                        <td>array</td>
+                        <td>Default value is ["*"] </td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "popupDisplayFields": [
+                                [ "mjesni_odbor", "Mjesni odbor" ],
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>visible</td>
+                        <td>boolean</td>
+                        <td>Default value is "true"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": true</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>opacity</td>
+                        <td>number</td>
+                        <td>Default value is "1"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": 1</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>legendEnabled</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "legendEnabled": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>listMode</td>
+                        <td>string</td>
+                        <td>Default value is "show"</td>
+                        <td>
+                            Indicates how the layer should display in the LayerList widget.
+                            Possible values: "show", "hide", "hide-children"
+                        </td>
+                        <td>
+                            <code>
+                                "listMode": 'hide-children'
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>renderer</td>
+                        <td>Esri class</td>
+                        <td>Default value is null</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                renderer?: SimpleRenderer | UniqueValueRenderer | ClassBreaksRenderer
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>popupEnabled</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "popupEnabled": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>elevationInfo</td>
+                        <td>string</td>
+                        <td>Default value is null</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "elevationInfo": "relative-to-scene"
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>showZoomToFullExtent</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Toggle zoom to full extent button in LayerList widget.
+                        </td>
+                        <td>
+                            <code>
+                                "showZoomToFullExtentButton": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">Scene layer</th>
+                    </tr>
+                    <tr>
+                        <td>url</td>
+                        <td>Url</td>
+                        <td>It has to have some valid url to be shown on the map</td>
+                        <td>
+                            Layer url so it can be correctly added to the map.
+                        </td>
+                        <td>
+                            <code>"https://tiles.arcgis.com/tiles/srGsjgmVH7sYUOi4/arcgis/rest/services/bolnica3d_1/SceneServer/layers/0/"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>type</td>
+                        <td>string</td>
+                        <td>Value from supported layers type</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"type": "SceneLayer"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>string</td>
+                        <td>Title</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"title": "3D bolnica"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>outFields</td>
+                        <td>array</td>
+                        <td>Default value is ["*"]</td>
+                        <td>
+                            Fields
+                        </td>
+                        <td>
+                            <code>"outFields": [ "*" ]</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>popupDisplayFields</td>
+                        <td>array</td>
+                        <td>Default value is ["*"] </td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "popupDisplayFields": [
+                                [ "mjesni_odbor", "Mjesni odbor" ],
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>visible</td>
+                        <td>boolean</td>
+                        <td>Default value should be always "true"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": true</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>opacity</td>
+                        <td>number</td>
+                        <td>Default value is "1"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": 1</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>legendEnabled</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "legendEnabled": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>MeshSymbol3D</td>
+                        <td>Esri class</td>
+                        <td>Default value is MeshSymbol3D</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                meshSymbol3d?: MeshSymbol3D;
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>listMode</td>
+                        <td>string</td>
+                        <td>Default value is "show"</td>
+                        <td>
+                            Indicates how the layer should display in the LayerList widget.
+                            Possible values: "show", "hide", "hide-children"
+                        </td>
+                        <td>
+                            <code>
+                                "listMode": 'hide-children'
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>renderer</td>
+                        <td>Esri class</td>
+                        <td>Default value is null</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                renderer?: SimpleRenderer | UniqueValueRenderer | ClassBreaksRenderer
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>popupEnabled</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "popupEnabled": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>defaultEdge</td>
+                        <td>string</td>
+                        <td>Default value is "no-edge"</td>
+                        <td>
+                            Defines edge on specific 3D object ("no-edge", "sketch", "solid")
+                        </td>
+                        <td>
+                            <code>
+                                "defaultEdge": "solid"
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>availableEdges</td>
+                        <td>array</td>
+                        <td>Default value is null</td>
+                        <td>
+                            List of possible values
+                        </td>
+                        <td>
+                            <code>
+                                "availableEdges": [ "no-edge", "sketch", "solid" ]
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>edges</td>
+                        <td>array</td>
+                        <td>Default value is null</td>
+                        <td>
+                            Edge set on specific scene layer
+                        </td>
+                        <td>
+                            <code>
+                                "edges": { "type": "solid", "color": [ 50, 50, 50, 0.5 ], "size": 1 }
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>elevationInfo</td>
+                        <td>string</td>
+                        <td>Default value is null</td>
+                        <td>
+                            Defines how the feature is placed with respect to the terrain surface.
+                            Possible values: "on-the-ground", "relative-to-ground", "absolute-height", "relative-to-scene"
+                        </td>
+                        <td>
+                            <code>
+                                "elevationInfo": "relative-to-scene"
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>showZoomToFullExtent</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Toggle zoom to full extent button in LayerList widget.
+                        </td>
+                        <td>
+                            <code>
+                                "showZoomToFullExtentButton": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">PointCloud layer</th>
+                    </tr>
+                    <tr>
+                        <td>url</td>
+                        <td>Url</td>
+                        <td>It has to have some valid url to be shown on the map</td>
+                        <td>
+                            Layer url so it can be correctly added to the map.
+                        </td>
+                        <td>
+                            <code>"https://gdiportal.gdi.net/server/rest/services/Hosted/DU2019_point_cloud_las1/SceneServer/layers/0/"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>type</td>
+                        <td>string</td>
+                        <td>Value from supported layers type</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"type": "PointCloudLayer"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>string</td>
+                        <td>Title</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"title": "Dubrovnik 2019"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>outFields</td>
+                        <td>array</td>
+                        <td>Default value is ["*"]</td>
+                        <td>
+                            Fields
+                        </td>
+                        <td>
+                            <code>"outFields": [ "*" ]</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>popupDisplayFields</td>
+                        <td>array</td>
+                        <td>Default value is ["*"] </td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "popupDisplayFields": [
+                                [ "mjesni_odbor", "Mjesni odbor" ],
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>visible</td>
+                        <td>boolean</td>
+                        <td>Default value should be always "true"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": true</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>opacity</td>
+                        <td>number</td>
+                        <td>Default value should be always "1"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": 1</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>listMode</td>
+                        <td>string</td>
+                        <td>Default value is "show"</td>
+                        <td>
+                            Indicates how the layer should display in the LayerList widget.
+                            Possible values: "show", "hide", "hide-children"
+                        </td>
+                        <td>
+                            <code>
+                                "listMode": 'hide-children'
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>renderer</td>
+                        <td>Esri class</td>
+                        <td>Default value is null</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                renderer?: SimpleRenderer | UniqueValueRenderer | ClassBreaksRenderer
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>pointSizes</td>
+                        <td>Array</td>
+                        <td>Default value is null</td>
+                        <td>
+                            Specific size of each point in layer
+                        </td>
+                        <td>
+                            <code>
+                                "pointSizes": {"min": 1, "max": 15,"init": 5}
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>pointDensity</td>
+                        <td>Array</td>
+                        <td>Default value is null</td>
+                        <td>
+                            Density of points in layer
+                        </td>
+                        <td>
+                            <code>
+                                "pointDensity": {"min": 1,"max": 40,"init": 25}
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>popupEnabled</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "popupEnabled": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>showZoomToFullExtent</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Toggle zoom to full extent button in LayerList widget.
+                        </td>
+                        <td>
+                            <code>
+                                "showZoomToFullExtentButton": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">BuildingScene layer</th>
+                    </tr>
+                    <tr>
+                        <td>url</td>
+                        <td>Url</td>
+                        <td>It has to have some valid url to be shown on the map</td>
+                        <td>
+                            Layer url so it can be correctly added to the map.
+                        </td>
+                        <td>
+                            <code>"https://tiles.arcgis.com/tiles/srGsjgmVH7sYUOi4/arcgis/rest/services/Dvorana_Sutinska_Vrela_R17_F01/SceneServer"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>type</td>
+                        <td>string</td>
+                        <td>Value from supported layers type</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"type": "BuildingSceneLayer"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>string</td>
+                        <td>Title</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"title": "Dvorana Sutinska vrela"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>popupDisplayFields</td>
+                        <td>array</td>
+                        <td>Default value is ["*"] </td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "popupDisplayFields": [
+                                [ "mjesni_odbor", "Mjesni odbor" ],
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>visible</td>
+                        <td>boolean</td>
+                        <td>Default value should be always "true"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": true</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>opacity</td>
+                        <td>number</td>
+                        <td>Default value should be always "1"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": 1</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>listMode</td>
+                        <td>string</td>
+                        <td>Default value is "show"</td>
+                        <td>
+                            Indicates how the layer should display in the LayerList widget.
+                            Possible values: "show", "hide", "hide-children"
+                        </td>
+                        <td>
+                            <code>
+                                "listMode": 'hide-children'
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>renderer</td>
+                        <td>Esri class</td>
+                        <td>Default value is null</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                renderer?: SimpleRenderer | UniqueValueRenderer | ClassBreaksRenderer
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>popupEnabled</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "popupEnabled": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>showZoomToFullExtent</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Toggle zoom to full extent button in LayerList widget.
+                        </td>
+                        <td>
+                            <code>
+                                "showZoomToFullExtentButton": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">MapImage layer</th>
+                    </tr>
+                    <tr>
+                        <td>url</td>
+                        <td>Url</td>
+                        <td>It has to have some valid url to be shown on the map</td>
+                        <td>
+                            Layer url so it can be correctly added to the map.
+                        </td>
+                        <td>
+                            <code>"https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>type</td>
+                        <td>string</td>
+                        <td>Value from supported layers type</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"type": "MapImageLayer"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>string</td>
+                        <td>Title</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"title": "Map image"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>visible</td>
+                        <td>boolean</td>
+                        <td>Default value should be always "true"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": true</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>opacity</td>
+                        <td>number</td>
+                        <td>Default value should be always "1"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": 1</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>legendEnabled</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "legendEnabled": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>sublayers</td>
+                        <td>Collection</td>
+                        <td>Default value is array</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "sublayers": [
+                                {
+                                "id": "5",
+                                "visible": true,
+                                "popupEnabled": true,
+                                "popupTemplate": {
+                                "title": "nesto",
+                                "content": "{*}"
+                                }
+                                },
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>showZoomToFullExtent</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Toggle zoom to full extent button in LayerList widget.
+                        </td>
+                        <td>
+                            <code>
+                                "showZoomToFullExtentButton": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">Tile layer</th>
+                    </tr>
+                    <tr>
+                        <td>url</td>
+                        <td>Url</td>
+                        <td>It has to have some valid url to be shown on the map</td>
+                        <td>
+                            Layer url so it can be correctly added to the map.
+                        </td>
+                        <td>
+                            <code>"https://services.arcgisonline.com/arcgis/rest/services/World_Terrain_Base/MapServer"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>type</td>
+                        <td>string</td>
+                        <td>Value from supported layers type</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"type": "TileLayer"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>string</td>
+                        <td>Title</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"title": "World terrain"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>outFields</td>
+                        <td>array</td>
+                        <td>Default value is ["*"]</td>
+                        <td>
+                            Fields
+                        </td>
+                        <td>
+                            <code>"outFields": [ "*" ]</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>popupDisplayFields</td>
+                        <td>array</td>
+                        <td>Default value is ["*"] </td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "popupDisplayFields": [
+                                [ "mjesni_odbor", "Mjesni odbor" ],
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>visible</td>
+                        <td>boolean</td>
+                        <td>Default value should be always "true"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": true</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>opacity</td>
+                        <td>number</td>
+                        <td>Default value should be always "1"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": 1</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>legendEnabled</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "legendEnabled": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>listMode</td>
+                        <td>string</td>
+                        <td>Default value is "show"</td>
+                        <td>
+                            Indicates how the layer should display in the LayerList widget.
+                            Possible values: "show", "hide", "hide-children"
+                        </td>
+                        <td>
+                            <code>
+                                "listMode": 'hide-children'
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>renderer</td>
+                        <td>Esri class</td>
+                        <td>Default value is null</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                renderer?: SimpleRenderer | UniqueValueRenderer | ClassBreaksRenderer
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>popupEnabled</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "popupEnabled": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>elevationInfo</td>
+                        <td>string</td>
+                        <td>Default value is null</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "elevationInfo": "relative-to-scene"
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>visibilityMode</td>
+                        <td>string</td>
+                        <td>Default value is null</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "visibilityMode": independent
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>showZoomToFullExtent</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Toggle zoom to full extent button in LayerList widget.
+                        </td>
+                        <td>
+                            <code>
+                                "showZoomToFullExtentButton": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">Integrated mesh layer</th>
+                    </tr>
+                    <tr>
+                        <td>url</td>
+                        <td>Url</td>
+                        <td>It has to have some valid url to be shown on the map</td>
+                        <td>
+                            Layer url so it can be correctly added to the map.
+                        </td>
+                        <td>
+                            <code>"https://tiles.arcgis.com/tiles/srGsjgmVH7sYUOi4/arcgis/rest/services/DU_stgrad_20190506/SceneServer/layers/0/"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>type</td>
+                        <td>string</td>
+                        <td>Value from supported layers type</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"type": "IntegratedMeshLayer"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>string</td>
+                        <td>Title</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"title": "DU_starigrad"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>visible</td>
+                        <td>boolean</td>
+                        <td>Default value should be always "true"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": true</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>opacity</td>
+                        <td>number</td>
+                        <td>Default value should be always "1"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": 1</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>showZoomToFullExtent</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Toggle zoom to full extent button in LayerList widget.
+                        </td>
+                        <td>
+                            <code>
+                                "showZoomToFullExtentButton": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">Group layer</th>
+                    </tr>
+                    <tr>
+                        <td>type</td>
+                        <td>string</td>
+                        <td>Default value is "group"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"type": "group"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>string</td>
+                        <td>Title</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"title": "3D postojeći objekti 2008-2012"</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>layers</td>
+                        <td>Collection (Layer)</td>
+                        <td></td>
+                        <td>
+                            A collection of operational layers.
+                        </td>
+                        <td>
+                            <code>"layers": [{...layer1...}, {...layer2...}]</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>visibilityMode</td>
+                        <td>string</td>
+                        <td>Default value is "independent" </td>
+                        <td>
+                            Indicates how to manage the visibility of the children layers.
+                            Possible values are: "independent", "inherited", "exclusive"
+                        </td>
+                        <td>
+                            <code>
+                                "visibilityMode": "independent"
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>visible</td>
+                        <td>boolean</td>
+                        <td>Default value is "true"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": true</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>opacity</td>
+                        <td>number</td>
+                        <td>Default value should be always "1"</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>"visible": 1</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>listMode</td>
+                        <td>string</td>
+                        <td>Default value is "show"</td>
+                        <td>
+                            Indicates how the layer should display in the LayerList widget.
+                            Possible values: "show", "hide", "hide-children"
+                        </td>
+                        <td>
+                            <code>
+                                "listMode": 'hide-children'
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>visibilityMode</td>
+                        <td>string</td>
+                        <td>Default value is null</td>
+                        <td>
+                            Self explanatory
+                        </td>
+                        <td>
+                            <code>
+                                "visibilityMode": independent
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>showZoomToFullExtent</td>
+                        <td>boolean</td>
+                        <td>Default value is false</td>
+                        <td>
+                            Toggle zoom to full extent button in LayerList widget.
+                        </td>
+                        <td>
+                            <code>
+                                "showZoomToFullExtentButton": true
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">Symbols/Edges</th>
+                    </tr>
+                    <tr>
+                        <td colspan="5">Edges</td>
+                    </tr>
+                    <tr>
+                        <td>solidEdge</td>
+                        <td>array</td>
+                        <td>Default value is null.</td>
+                        <td>
+                            Specific setup for solid edge on specific scene layer.
+                        </td>
+                        <td>
+                            <code>
+                                "solidEdge": {
+                                "type": "solid",
+                                "color": [ 0, 0, 0, 0.6 ],
+                                "size": 1
+                                }
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>sketchEdge</td>
+                        <td>array</td>
+                        <td>Default value is null</td>
+                        <td>
+                            Specific setup for sketch edge on specific scene layer.
+                        </td>
+                        <td>
+                            <code>
+                                "sketchEdge": {
+                                "type": "sketch",
+                                "color": [ 0, 0, 0, 0.8 ],
+                                "size": 1,
+                                "extensionLength": 10
+                                }
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">Symbols</td>
+                    </tr>
+                    <tr>
+                        <td>measureToolPointSymbol</td>
+                        <td>PointSymbol3D</td>
+                        <td>Default value is null</td>
+                        <td>
+                            Specific setup for Tool Point Symbol.
+                        </td>
+                        <td>
+                            <code>
+                                "measureToolPointSymbol": {
+                                "symbolLayers": [
+                                {
+                                "type": "icon",
+                                "size": 16,
+                                "resource": { "primitive": "square" },
+                                "material": { "color": [ 0, 0, 0, 1.0 ] },
+                                "outline": {
+                                "color": [ 102, 204, 255, 1.0 ],
+                                "size": 1
+                                },
+                                "anchor": "center"
+                                },
+                                {
+                                "type": "text",
+                                "font": {
+                                "family": "monospace"
+                                },
+                                "material": { "color": [ 255, 255, 255, 1.0 ] },
+                                "size": 12
+                                }
+                                ]
+                                }
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>measureToolLineSymbol</td>
+                        <td>LineSymbol3D</td>
+                        <td>Default value is null</td>
+                        <td>
+                            Specific setup for Tool Line Symbol.
+                        </td>
+                        <td>
+                            <code>
+                                "measureToolLineSymbol": {
+                                "symbolLayers": [
+                                {
+                                "type": "line",
+                                "size": 2,
+                                "material": { "color": [ 102, 204, 255, 1.0 ] }
+                                }
+                                ]
+                                }
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>selectToolPolygonSymbol</td>
+                        <td>SimpleFillSymbol</td>
+                        <td>Default value is null</td>
+                        <td>
+                            Specific setup for Tool Polygon Symbol.
+                        </td>
+                        <td>
+                            <code>
+                                "selectToolPolygonSymbol": {
+                                "color": [ 0, 0, 0, 0.5 ],
+                                "style": "backward-diagonal",
+                                "outline": {
+                                "color": [ 102, 204, 255, 1 ],
+                                "width": 1.5
+                                }
+                                }
+                            </code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>selectToolCircleSymbol</td>
+                        <td>SimpleFillSymbol</td>
+                        <td>Default value is null</td>
+                        <td>
+                            Specific setup for Tool Circle Symbol.
+                        </td>
+                        <td>
+                            <code>
+                                "selectToolCircleSymbol": {
+                                "color": [ 0, 0, 0, 0.5 ],
+                                "style": "backward-diagonal",
+                                "outline": {
+                                "color": [ 102, 204, 255, 1 ],
+                                "width": 1.5
+                                }
+                                }
+                            </code>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+
+</html>
+<!-- "title": "Zagrebačka županija",
+"initialDateTime": "October 16, 2017 13:00:00",
+"shadowsEnabled": false,
+"ambientOcclusionEnabled": false,
+"viewLonLatElevation": [ 16.10, 45.72, 20000 ],
+"viewHeadingTiltFOV": [ 0, 30, 55 ],
+
+
+"viewQualityProfile": "low",
+"atmosphereEnabled": false,
+"atmosphereQuality": "low",
+"starsEnabled": false, -->

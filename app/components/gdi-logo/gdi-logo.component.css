@@ -1,0 +1,23 @@
+:host {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: -1;
+}
+
+a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    opacity: 0.5;
+}
+
+a:hover {
+    opacity: 1;
+}
+
+p {
+    padding-right: 6px;
+    color: white;
+}
